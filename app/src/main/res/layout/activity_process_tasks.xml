@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".processTasks">
+
+    <LinearLayout
+        android:id="@+id/topLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/calendarTextView"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#530101"
+            android:gravity="center"
+            android:text="PROCESSING TASKS"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/taskTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="Task"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLinearLayout" />
+
+    <TextView
+        android:id="@+id/taskTItle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/selectTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskTextView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Something to do" />
+
+    <TextView
+        android:id="@+id/selectTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="Select how to process task:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:useDefaultMargins="true">
+
+        <Button
+            android:id="@+id/hotlistProcessButton"
+            android:layout_width="178dp"
+            android:layout_height="119dp"
+            android:background="#FB8C00"
+            android:gravity="center"
+            android:onClick="hotlistProcess"
+            android:paddingHorizontal="20dp"
+            android:text="Hotlist"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/calendarProcessButton"
+            android:layout_width="178dp"
+            android:layout_height="119dp"
+            android:background="#039BE5"
+            android:gravity="center"
+            android:onClick="calendarProcess"
+            android:text="Calendar"
+            android:textSize="24sp"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/incubatorProcessButton"
+            android:layout_width="178dp"
+            android:layout_height="119dp"
+            android:background="#D81B60"
+            android:gravity="center"
+            android:onClick="incubatorProcess"
+            android:text="Incubator"
+            android:textSize="24sp"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/ticklerFileProcessButton"
+            android:layout_width="178dp"
+            android:layout_height="119dp"
+            android:background="#7CB342"
+            android:gravity="center"
+            android:onClick="ticklerFileProcess"
+            android:text="Tickler file"
+            android:textSize="24sp"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Inbox"
+        android:id="@+id/inbox" />
+    <item
+        android:title="Hotlist"
+        android:id="@+id/hotlist"/>
+    <item
+        android:title="Calendar"
+        android:id="@+id/calendar"/>
+    <item
+        android:title="Incubator"
+        android:id="@+id/incubator" />
+    <item
+        android:title="Tickler File"
+        android:id="@+id/ticklerfile" />
+    <item
+        android:title="Settings"
+        android:id="@+id/settings"/>
+</menu>
