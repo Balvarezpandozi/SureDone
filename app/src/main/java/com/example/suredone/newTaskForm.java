@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import static com.example.suredone.MainActivity.inbox;
-import static com.example.suredone.MainActivity.inboxAdapter;
-
 public class newTaskForm extends AppCompatActivity {
 
     EditText newTaskEditText;

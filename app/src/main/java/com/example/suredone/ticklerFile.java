@@ -30,7 +30,7 @@ public class ticklerFile extends AppCompatActivity {
     DataBaseHelper dataBaseHelper;
     PopupMenu generalMenu;
     ArrayAdapter ticklerFileAdapter;
-    List<TicklerFileTask> ticklerFileTasks;
+    static List<TicklerFileTask> ticklerFileTasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,6 @@ public class ticklerFile extends AppCompatActivity {
 
         //ITEMS MENU SETUP
         registerForContextMenu(ticklerFileListView);
-
-
     }
 
     //Show tasks on ListView
@@ -60,7 +58,13 @@ public class ticklerFile extends AppCompatActivity {
     }
 
     //Takes tasks back to inbox
-    public void takeTaskToInbox(TicklerFileTask ticklerFileTask){
+    static void takeTaskToInbox(TicklerFileTask ticklerFileTask, DataBaseHelper dataBaseHelper){
+        InboxTask inboxTask = new InboxTask(-1, ticklerFileTask.getTitle());
+        dataBaseHelper.addInboxTask(inboxTask);
+        dataBaseHelper.deleteTicklerFileTaskByID(ticklerFileTask);
+    }
+
+    public void takeTaskToInboxButtonAction(TicklerFileTask ticklerFileTask){
         InboxTask inboxTask = new InboxTask(-1, ticklerFileTask.getTitle());
         dataBaseHelper.addInboxTask(inboxTask);
         dataBaseHelper.deleteTicklerFileTaskByID(ticklerFileTask);
@@ -68,7 +72,7 @@ public class ticklerFile extends AppCompatActivity {
     }
 
     //Takes ACTIVE tasks back to the inbox -- Figure out how to do it on background!
-    public void takeActiveTasksToInbox(DataBaseHelper dataBaseHelperToTakeBackToInbox){
+    static void takeActiveTasksToInbox(DataBaseHelper dataBaseHelperToTakeBackToInbox){
         ticklerFileTasks = dataBaseHelperToTakeBackToInbox.getAllTicklerFileTasks();
         for (int i = 0; i<ticklerFileTasks.size(); i++){
             String date = ticklerFileTasks.get(i).getActiveDate();
@@ -81,14 +85,14 @@ public class ticklerFile extends AppCompatActivity {
 
             if (Integer.parseInt(taskDate[2]) <= Integer.parseInt(currentDate[2])){
                 if (Integer.parseInt(taskDate[2]) < Integer.parseInt(currentDate[2])){
-                    takeTaskToInbox(ticklerFileTasks.get(i));
+                    takeTaskToInbox(ticklerFileTasks.get(i), dataBaseHelperToTakeBackToInbox);
                 } else if (Integer.parseInt(taskDate[2]) == Integer.parseInt(currentDate[2])){
                     if (Integer.parseInt(taskDate[0]) <= Integer.parseInt(currentDate[0])){
                         if (Integer.parseInt(taskDate[0]) < Integer.parseInt(currentDate[0])){
-                            takeTaskToInbox(ticklerFileTasks.get(i));
+                            takeTaskToInbox(ticklerFileTasks.get(i), dataBaseHelperToTakeBackToInbox);
                         }else if (Integer.parseInt(taskDate[0]) == Integer.parseInt(currentDate[0])){
                             if (Integer.parseInt(taskDate[1]) <= Integer.parseInt(currentDate[1])){
-                                takeTaskToInbox(ticklerFileTasks.get(i));
+                                takeTaskToInbox(ticklerFileTasks.get(i), dataBaseHelperToTakeBackToInbox);
                             }
                         }
                     }
@@ -109,7 +113,7 @@ public class ticklerFile extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.inbox:
-                        Intent inboxIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent inboxIntent = new Intent(getApplicationContext(), inbox.class);
                         startActivity(inboxIntent);
                         return true;
                     case R.id.hotlist:
@@ -167,7 +171,7 @@ public class ticklerFile extends AppCompatActivity {
                 showTicklerFileTasksOnListView(dataBaseHelper);
                 return true;
             case R.id.takeTaskToInbox:
-                takeTaskToInbox(ticklerFileTask);
+                takeTaskToInboxButtonAction(ticklerFileTask);
             default:
                 return super.onContextItemSelected(item);
         }

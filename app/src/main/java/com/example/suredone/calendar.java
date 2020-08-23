@@ -73,7 +73,7 @@ public class calendar extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.inbox:
-                        Intent inboxIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent inboxIntent = new Intent(getApplicationContext(), inbox.class);
                         startActivity(inboxIntent);
                         return true;
                     case R.id.hotlist:

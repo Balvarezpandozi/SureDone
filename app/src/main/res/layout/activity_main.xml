@@ -6,77 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/topLinearLayout"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#FF0000"
-            android:onClick="createNewTask"
-            android:text="+"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/calendarTextView"
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#530101"
-            android:gravity="center"
-            android:text="INBOX"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            tools:text="INBOX" />
-
-        <ImageView
-            android:id="@+id/generalMenuImageView"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#EA0000"
-            android:onClick="openGeneralMenu"
-            app:srcCompat="@drawable/menuicon" />
-
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/inboxTasksListView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/processTasksButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topLinearLayout"
-        app:layout_constraintVertical_bias="1.0"
-        tools:visibility="visible">
-
-    </ListView>
-
-    <Button
-        android:id="@+id/processTasksButton"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:background="#EA0000"
-        android:onClick="processTasks"
-        android:text="PROCESS TASKS"
-        android:textSize="24sp"
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>
