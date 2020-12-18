@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".info.Info">
+
+    <LinearLayout
+        android:id="@+id/topLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/infoTextView"
+            android:layout_width="252dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#051919"
+            android:gravity="center"
+            android:text="INFO"
+            android:textColor="#FDFFFD"
+            android:textSize="30sp"
+            tools:text="INFO" />
+
+        <ImageView
+            android:id="@+id/generalMenuImageView"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00FFFD"
+            android:onClick="openGeneralMenu"
+            app:srcCompat="@drawable/menuicon" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/SureDoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SureDone"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLinearLayout" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version 1.0"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/SureDoneTextView"
+        app:layout_constraintBottom_toTopOf="@+id/sureDoneLogoImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/sureDoneLogoImageView"
+        android:layout_width="338dp"
+        android:layout_height="312dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView10" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="293dp"
+        android:layout_height="38dp"
+        android:gravity="center"
+        android:text="Coded and Designed by"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sureDoneLogoImageView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="275dp"
+        android:layout_height="51dp"
+        android:alpha="1"
+        android:gravity="center"
+        android:text="Bryan D Alvarez P"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/textView9"
+        app:layout_constraintBottom_toTopOf="@+id/websiteTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/websiteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="BryanDAlvarez.com"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="110dp"
+        android:layout_height="121dp"
+        android:src="@drawable/logobryanalvarezforeground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/websiteTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

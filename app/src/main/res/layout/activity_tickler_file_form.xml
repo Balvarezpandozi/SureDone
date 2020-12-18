@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ticklerFileForm">
+    tools:context=".ticklerFile.ticklerFileForm">
 
     <Button
         android:id="@+id/saveTicklerFileTaskButton"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/calendarTextView"
+            android:id="@+id/infoTextView"
             android:layout_width="252dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
