@@ -26,13 +26,10 @@ import com.example.suredone.incubator.incubator;
 import com.example.suredone.info.Info;
 import com.example.suredone.ticklerFile.ticklerFile;
 
-import java.util.ArrayList;
-
 import static com.example.suredone.ticklerFile.ticklerFile.takeActiveTasksToInbox;
 
 public class inbox extends AppCompatActivity {
 
-    static ArrayList<String> inbox = new ArrayList<String>();
     static ArrayAdapter inboxAdapter;
 
     ListView listView;

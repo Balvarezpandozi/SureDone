@@ -16,6 +16,7 @@ import com.example.suredone.incubator.IncubatorTask;
 import com.example.suredone.ticklerFile.TicklerFileTask;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 //HELPFUL EXAMPLE: https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
@@ -176,6 +177,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return false;
     }
+        //Is Inbox table empty
+    public boolean isInboxEmpty(){
+        //get data from database
+        String queryString = "SELECT * FROM " + INBOX_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()){
+            return false;
+        }
+
+        cursor.close();
+        db.close();
+        return true;
+    }
 
 
     //HOTLIST METHODS
@@ -294,6 +310,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
         cursor.close();
         return false;
+    }
+        //Is Hotlist table empty or all tasks done
+    public boolean isHotlistEmpty(){
+        String queryString = "SELECT * FROM " + HOTLIST_TABLE + " WHERE " + COLUMN_DONE_TASK + " = 0";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()){
+            return false;
+        }
+
+        cursor.close();
+        db.close();
+        return true;
     }
 
     //TICKLER FILE METHODS
@@ -492,6 +522,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         db.close();
         cursor.close();
+        return false;
+    }
+        //Is there a Calendar event today
+    public boolean isCalendarEventToday(){
+
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = (calendar.get(Calendar.MONTH)+1) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR);
+        String queryString = "SELECT * FROM " + CALENDAR_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()){
+            do{
+
+                String eventDate = cursor.getString(2);
+                if (eventDate.equals(currentDate)){
+                    return true;
+                }
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
         return false;
     }
 
